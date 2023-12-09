@@ -8,7 +8,7 @@ exports.register = async (req, res, next) => {
     var new_user = new User({ username, password });
     const result = await new_user.save();
     if (result) {
-      res.status(200).json({});
+      res.status(200).json(result);
     } else {
       res.status(401).json({});
     }

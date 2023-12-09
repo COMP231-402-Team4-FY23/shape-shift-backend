@@ -11,7 +11,7 @@ exports.authentication = async (req, res, next) => {
   try {
     const result = await User.find({ username, password }).exec();
     if (result.length > 0) {
-      res.status(200).json({});
+      res.status(200).json(result[0]);
     } else {
       res.status(401).json({});
     }
