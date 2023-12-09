@@ -1,8 +1,4 @@
 const User = require("../models/user");
-exports.getPosts = (req, res, next) => {
-  // return an array of posts
-  res.status(200).json();
-};
 
 exports.authentication = async (req, res, next) => {
   // get post's title and content from the request
@@ -18,7 +14,4 @@ exports.authentication = async (req, res, next) => {
   } catch (error) {
     console.log(error);
   }
-
-  // create a post with a dynamic Id with the current date
-  // return a confirmation message with the created post object
 };
