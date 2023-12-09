@@ -13,8 +13,11 @@ exports.users = async (req, res, next) => {
 exports.delete = async (req, res, next) => {
   try {
     const result = await User.deleteOne({ _id: req.params.id });
-
-    res.status(200).json(result);
+    if (result.deletedCount === 1) {
+      res.status(204).json({});
+    } else {
+      res.status(400).json({});
+    }
   } catch (error) {
     res.status(500).json(error);
     console.log(error);
